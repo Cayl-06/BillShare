@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:background="@drawable/bg_card_white"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/icBillIcon"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_circle_red_light"
+        android:padding="12dp"
+        android:src="@android:drawable/ic_menu_agenda"
+        app:tint="#EF4444" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:layout_toEndOf="@id/icBillIcon"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvBillName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bill Name"
+            android:textColor="#1E293B"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBillDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MM/DD/YYYY"
+            android:textColor="#64748B"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:gravity="end"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvBillAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$0.00"
+            android:textColor="#1E293B"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvBillStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Unpaid"
+            android:textColor="#EF4444"
+            android:textSize="10sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</RelativeLayout>
