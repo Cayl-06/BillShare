@@ -21,7 +21,7 @@ class GroupDetailsActivity : Activity(), GroupDetailsContract.View {
 	private lateinit var btnBack: ImageView
 	private lateinit var tvGroupDetailName: TextView
 	private lateinit var layoutMemberAvatars: LinearLayout
-	private lateinit var btnAddBillToGroup: LinearLayout
+	private lateinit var btnAddBillToGroup: TextView
 	private lateinit var listViewGroupBills: ListView
 
 	private lateinit var adapter: BillListViewAdapter
