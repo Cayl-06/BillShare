@@ -7,6 +7,8 @@ class DashboardContract {
     interface View {
         fun displayWelcomeUser(message: String)
         fun displayBills(bills: MutableList<Bill>)
+        fun displayToPay(amount: String)
+        fun displayToReceive(amount: String)
     }
 
     interface Presenter {
@@ -14,5 +16,6 @@ class DashboardContract {
         fun loadBills()
         fun addBill()
         fun removeBill(position: Int)
+        fun calculateBalances()
     }
 }

@@ -22,6 +22,11 @@ class LoginActivity : Activity(), LoginContract.View {
         val editTextUserName = findViewById<EditText>(R.id.etUsername)
         val editTextPassword = findViewById<EditText>(R.id.etPassword)
         val buttonLogin = findViewById<Button>(R.id.btnLogin)
+        val tvCreateAccount = findViewById<android.widget.TextView>(R.id.tvCreateAccount)
+
+        tvCreateAccount.setOnClickListener {
+            startActivity(Intent(this, com.example.kotlinmvppractice.screens.register.RegisterActivity::class.java))
+        }
 
         //when btn login is pressed
         //basic / long way instead of using extensions for cleaner code

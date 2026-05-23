@@ -27,6 +27,27 @@
         <activity
             android:name=".screens.dashboard.DashboardActivity"
             android:exported="false" />
+        <activity
+            android:name=".screens.addbill.AddBillActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.allbills.AllBillsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.groups.GroupsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.creategroup.CreateGroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.notifications.NotificationsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.splitcalculator.SplitCalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".screens.register.RegisterActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
