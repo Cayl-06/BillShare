@@ -37,7 +37,7 @@ class GroupDetailsActivity : Activity(), GroupDetailsContract.View {
 		btnBack = findViewById(R.id.btnBack)
 		tvGroupDetailName = findViewById(R.id.tvGroupDetailName)
 		layoutMemberAvatars = findViewById(R.id.layoutMemberAvatars)
-		btnAddBillToGroup = findViewById(R.id.btnAddBillToGroup)
+		btnAddBillToGroup = findViewById(R.id.tvAddBillToGroup)
 		listViewGroupBills = findViewById(R.id.listViewGroupBills)
 
 		presenter = GroupDetailsPresenter(this, GroupDetailsModel(application as CustomApp, groupName), groupName)

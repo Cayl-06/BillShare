@@ -1,6 +1,7 @@
 package com.example.kotlinmvppractice.helper
 
 import android.content.Context
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -46,6 +47,13 @@ class BillListViewAdapter(
         tvBillDate.text   = if (bill.groupName.isNotEmpty()) "${bill.groupName} • Due ${bill.dueDate}" else bill.dueDate
         tvBillAmount.text = bill.amount
         tvBillStatus.text = bill.status
+        tvBillStatus.setTextColor(
+            if (bill.status.equals("Paid", ignoreCase = true)) {
+                Color.parseColor("#10B981")
+            } else {
+                Color.parseColor("#EF4444")
+            }
+        )
 
         return view
     }

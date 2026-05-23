@@ -13,11 +13,13 @@ import com.example.kotlinmvppractice.R
 import com.example.kotlinmvppractice.app.CustomApp
 import com.example.kotlinmvppractice.data.Bill
 import com.example.kotlinmvppractice.helper.BillListViewAdapter
+import com.example.kotlinmvppractice.screens.billdetails.BillDetailsActivity
 import com.example.kotlinmvppractice.screens.groups.GroupsActivity
 import com.example.kotlinmvppractice.screens.allbills.AllBillsActivity
 import com.example.kotlinmvppractice.screens.notifications.NotificationsActivity
 import com.example.kotlinmvppractice.screens.addbill.AddBillActivity
 import com.example.kotlinmvppractice.screens.creategroup.CreateGroupActivity
+import com.example.kotlinmvppractice.screens.profile.ProfileActivity
 
 class DashboardActivity : Activity(), DashboardContract.View {
 
@@ -101,13 +103,15 @@ class DashboardActivity : Activity(), DashboardContract.View {
         }
         
         navProfile.setOnClickListener {
-            Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, ProfileActivity::class.java))
+            finish()
         }
 
-        // click → show bill name and amount (like ListViewPrac's onClick)
         listViewBills.setOnItemClickListener { _, _, position, _ ->
             val bill = billList[position]
-            Toast.makeText(this, "${bill.name}: ${bill.amount}", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, BillDetailsActivity::class.java)
+            intent.putExtra("BILL_NAME", bill.name)
+            startActivity(intent)
         }
 
 
@@ -142,12 +146,8 @@ class DashboardActivity : Activity(), DashboardContract.View {
     }
 
     override fun displayBills(bills: MutableList<Bill>) {
-        // sync the adapter's list then notify (same as notifyDataSetChanged in ListViewPrac)
         billList.clear()
-        
-        // Take at most 2 items to mock "upcoming", the rest are accessed via See All
-        val limitedBills = bills.take(2)
-        billList.addAll(limitedBills)
+        billList.addAll(bills)
         adapter.notifyDataSetChanged()
     }
 

@@ -12,6 +12,8 @@ import com.example.kotlinmvppractice.data.Group
 import com.example.kotlinmvppractice.helper.GroupAdapter
 import com.example.kotlinmvppractice.screens.dashboard.DashboardActivity
 import com.example.kotlinmvppractice.screens.allbills.AllBillsActivity
+import com.example.kotlinmvppractice.screens.groupdetails.GroupDetailsActivity
+import com.example.kotlinmvppractice.screens.profile.ProfileActivity
 
 class GroupsActivity : Activity(), GroupsContract.View {
 	private lateinit var presenter: GroupsPresenter
@@ -44,12 +46,19 @@ class GroupsActivity : Activity(), GroupsContract.View {
 		navHome.setOnClickListener { startActivity(Intent(this, DashboardActivity::class.java)); finish() }
 		navGroups.setOnClickListener { /* stay */ }
 		navBills.setOnClickListener { startActivity(Intent(this, AllBillsActivity::class.java)); finish() }
-		navProfile.setOnClickListener { Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show() }
+		navProfile.setOnClickListener { startActivity(Intent(this, ProfileActivity::class.java)); finish() }
 
 		listViewGroups.setOnItemClickListener { _, _, position, _ ->
 			val g = groupList[position]
-			Toast.makeText(this, g.name, Toast.LENGTH_SHORT).show()
+			val intent = Intent(this, GroupDetailsActivity::class.java)
+			intent.putExtra("GROUP_NAME", g.name)
+			startActivity(intent)
 		}
+	}
+
+	override fun onResume() {
+		super.onResume()
+		presenter.loadGroups()
 	}
 
 	override fun displayGroups(groups: MutableList<Group>) {

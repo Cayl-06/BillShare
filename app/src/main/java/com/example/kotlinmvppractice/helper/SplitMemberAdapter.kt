@@ -8,7 +8,7 @@ import android.widget.BaseAdapter
 import android.widget.EditText
 import android.widget.TextView
 import com.example.kotlinmvppractice.R
-import com.example.kotlinmvppractice.screens.splitcalculator.SplitMember
+import com.example.kotlinmvppractice.data.SplitMember
 
 class SplitMemberAdapter(private val context: Context, private val memberList: List<SplitMember>) : BaseAdapter() {
 	override fun getCount() = memberList.size

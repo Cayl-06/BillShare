@@ -21,7 +21,3 @@ class BillDetailsModel(private val app: CustomApp) {
 
     fun isFullyPaid(billName: String): Boolean = getMembers(billName).all { it.isPaid }
 }
-package com.example.kotlinmvppractice.screens.billdetails
-
-class BillDetailsModel {
-}

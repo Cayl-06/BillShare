@@ -15,7 +15,3 @@ class ProfilePresenter(private val view: ProfileContract.View, private val model
         view.navigateToWelcome()
     }
 }
-package com.example.kotlinmvppractice.screens.profile
-
-class ProfilePresenter {
-}

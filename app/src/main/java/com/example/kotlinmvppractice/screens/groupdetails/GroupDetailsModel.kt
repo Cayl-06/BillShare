@@ -9,7 +9,4 @@ class GroupDetailsModel(private val app: CustomApp, private val groupName: Strin
 
     fun getBillsForGroup(): MutableList<Bill> = app.bills.filter { it.groupName == groupName }.toMutableList()
 }
-package com.example.kotlinmvppractice.screens.groupdetails
 
-class GroupDetailsModel {
-}

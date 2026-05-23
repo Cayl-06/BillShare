@@ -27,7 +27,3 @@ class BillDetailsPresenter(
         }
     }
 }
-package com.example.kotlinmvppractice.screens.billdetails
-
-class BillDetailsPresenter {
-}

@@ -23,7 +23,7 @@ class SplitCalculatorActivity : Activity(), SplitCalculatorContract.View {
     private lateinit var btnBack: ImageView
 
     private lateinit var adapter: SplitMemberAdapter
-    private var memberList = mutableListOf<SplitMember>()
+    private var memberList = mutableListOf<com.example.kotlinmvppractice.data.SplitMember>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,7 +63,7 @@ class SplitCalculatorActivity : Activity(), SplitCalculatorContract.View {
         tvTotalBill.text = amount
     }
 
-    override fun displayMembers(members: MutableList<SplitMember>) {
+    override fun displayMembers(members: MutableList<com.example.kotlinmvppractice.data.SplitMember>) {
         memberList.clear()
         memberList.addAll(members)
         adapter.notifyDataSetChanged()

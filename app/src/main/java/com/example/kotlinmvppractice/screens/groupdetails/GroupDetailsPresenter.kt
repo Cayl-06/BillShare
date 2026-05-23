@@ -17,7 +17,3 @@ class GroupDetailsPresenter(
         view.navigateToAddBill(groupName)
     }
 }
-package com.example.kotlinmvppractice.screens.groupdetails
-
-class GroupDetailsPresenter {
-}

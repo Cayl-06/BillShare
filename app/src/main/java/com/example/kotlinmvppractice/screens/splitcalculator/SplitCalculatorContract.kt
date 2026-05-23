@@ -1,5 +1,7 @@
 package com.example.kotlinmvppractice.screens.splitcalculator
 
+import com.example.kotlinmvppractice.data.SplitMember
+
 class SplitCalculatorContract {
 	interface View {
 		fun displayTotalBill(amount: String)

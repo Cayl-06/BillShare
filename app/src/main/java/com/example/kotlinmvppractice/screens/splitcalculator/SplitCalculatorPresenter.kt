@@ -1,5 +1,7 @@
 package com.example.kotlinmvppractice.screens.splitcalculator
 
+import com.example.kotlinmvppractice.data.SplitMember
+
 class SplitCalculatorPresenter(
     private val view: SplitCalculatorContract.View,
     private val model: SplitCalculatorModel
@@ -7,7 +9,7 @@ class SplitCalculatorPresenter(
 
     private var isEqualSplit = true
     private var totalAmountDouble = 0.0
-    private var currentMembers = mutableListOf<SplitMember>()
+    private var currentMembers = mutableListOf<com.example.kotlinmvppractice.data.SplitMember>()
     private var billName: String = ""
     private var dueDate: String = ""
     private var groupName: String = ""

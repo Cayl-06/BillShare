@@ -13,6 +13,7 @@ import com.example.kotlinmvppractice.data.Bill
 import com.example.kotlinmvppractice.helper.BillListViewAdapter
 import com.example.kotlinmvppractice.screens.dashboard.DashboardActivity
 import com.example.kotlinmvppractice.screens.groups.GroupsActivity
+import com.example.kotlinmvppractice.screens.profile.ProfileActivity
 
 class AllBillsActivity : Activity(), AllBillsContract.View {
 
@@ -53,7 +54,7 @@ class AllBillsActivity : Activity(), AllBillsContract.View {
 		navHome.setOnClickListener { startActivity(Intent(this, DashboardActivity::class.java)); finish() }
 		navGroups.setOnClickListener { startActivity(Intent(this, GroupsActivity::class.java)); finish() }
 		navBills.setOnClickListener { /* stay on bills */ }
-		navProfile.setOnClickListener { Toast.makeText(this, "Profile coming soon", Toast.LENGTH_SHORT).show() }
+		navProfile.setOnClickListener { startActivity(Intent(this, ProfileActivity::class.java)); finish() }
 
 		listViewAllBills.setOnItemLongClickListener { _, _, position, _ ->
 			showRemoveDialog(position)
