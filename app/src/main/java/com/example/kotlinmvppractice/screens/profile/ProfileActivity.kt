@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import android.widget.TextView
 import com.example.kotlinmvppractice.R
 import com.example.kotlinmvppractice.app.CustomApp
@@ -25,11 +26,11 @@ class ProfileActivity : Activity(), ProfileContract.View {
 	private lateinit var tvStatBills: TextView
 	private lateinit var tvStatUnpaid: TextView
 
-	private lateinit var menuMyBills: LinearLayout
-	private lateinit var menuMyGroups: LinearLayout
-	private lateinit var menuNotifications: LinearLayout
-	private lateinit var menuChangePassword: LinearLayout
-	private lateinit var menuLogout: LinearLayout
+	private lateinit var menuMyBills: RelativeLayout
+	private lateinit var menuMyGroups: RelativeLayout
+	private lateinit var menuNotifications: RelativeLayout
+	private lateinit var menuChangePassword: RelativeLayout
+	private lateinit var menuLogout: RelativeLayout
 
 	private lateinit var navHome: LinearLayout
 	private lateinit var navGroups: LinearLayout
@@ -69,6 +70,7 @@ class ProfileActivity : Activity(), ProfileContract.View {
 		navHome.setOnClickListener { startActivity(Intent(this, com.example.kotlinmvppractice.screens.dashboard.DashboardActivity::class.java)); finish() }
 		navGroups.setOnClickListener { startActivity(Intent(this, GroupsActivity::class.java)); finish() }
 		navBills.setOnClickListener { startActivity(Intent(this, AllBillsActivity::class.java)); finish() }
+		navProfile.setOnClickListener { /* already on profile */ }
 
 		presenter.loadProfile()
 	}
