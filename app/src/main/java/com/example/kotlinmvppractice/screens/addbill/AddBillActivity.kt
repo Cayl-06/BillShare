@@ -29,8 +29,15 @@ class AddBillActivity : Activity(), AddBillContract.View {
 		val tvSelectedGroup = findViewById<TextView>(R.id.tvSelectedGroup)
 		val btnCalculateSplit = findViewById<Button>(R.id.btnCalculateSplit)
 
-		val groups = (application as CustomApp).groups
-		tvSelectedGroup.text = if (groups.isNotEmpty()) groups[0].name else "No Group"
+		presenter.loadGroups()
+
+		// preset group from navigation
+		intent.getStringExtra("PRESET_GROUP")?.let {
+			presenter.onGroupSelected(it)
+		}
+
+		// tvSelectedGroup toggles the group selection dialog
+		tvSelectedGroup.setOnClickListener { presenter.onGroupSelectorClicked() }
 
 		btnBack.setOnClickListener { finish() }
 
@@ -42,6 +49,25 @@ class AddBillActivity : Activity(), AddBillContract.View {
 				tvSelectedGroup.text.toString()
 			)
 		}
+
+
+		// Implement the view callbacks for selection dialog
+		// (the presenter will call view.showGroupSelectionDialog / updateSelectedGroup)
+	}
+
+	override fun showGroupSelectionDialog(groupNames: List<String>) {
+		val arr = groupNames.toTypedArray()
+		androidx.appcompat.app.AlertDialog.Builder(this)
+			.setItems(arr) { _, which ->
+				val selected = arr[which]
+				presenter.onGroupSelected(selected)
+			}
+			.show()
+	}
+
+	override fun updateSelectedGroup(groupName: String) {
+		val tvSelectedGroup = findViewById<TextView>(R.id.tvSelectedGroup)
+		tvSelectedGroup.text = groupName
 	}
 
 	override fun showEmpty() = toastEXT("Please fill all bill fields")

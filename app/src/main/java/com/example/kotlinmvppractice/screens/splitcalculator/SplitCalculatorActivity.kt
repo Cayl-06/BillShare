@@ -43,13 +43,14 @@ class SplitCalculatorActivity : Activity(), SplitCalculatorContract.View {
 
         val billName = intent.getStringExtra("BILL_NAME") ?: ""
         val billAmount = intent.getStringExtra("BILL_AMOUNT") ?: "0.00"
+        val dueDate = intent.getStringExtra("BILL_DUE_DATE") ?: ""
         val groupName = intent.getStringExtra("GROUP_NAME") ?: ""
 
         val app = application as CustomApp
         val group = app.groups.find { it.name == groupName }
         val members = group?.members?.toList() ?: listOf((application as CustomApp).username)
 
-        presenter.loadData(billAmount, members)
+        presenter.loadData(billName, billAmount, dueDate, groupName, members)
 
         tabEqualSplit.setOnClickListener { presenter.onEqualSplitTab() }
         tabCustomSplit.setOnClickListener { presenter.onCustomSplitTab() }

@@ -23,4 +23,20 @@ class AddBillPresenter(private val view: AddBillContract.View, private val model
 		view.showSuccess()
 		view.navigateToSplitCalculator(bill, groupName)
 	}
+
+	override fun loadGroups() {
+		val groups = model.getGroups().map { it.name }
+		if (groups.isNotEmpty()) {
+			view.updateSelectedGroup(groups.first())
+		}
+	}
+
+	override fun onGroupSelectorClicked() {
+		val names = model.getGroups().map { it.name }
+		view.showGroupSelectionDialog(names)
+	}
+
+	override fun onGroupSelected(groupName: String) {
+		view.updateSelectedGroup(groupName)
+	}
 }

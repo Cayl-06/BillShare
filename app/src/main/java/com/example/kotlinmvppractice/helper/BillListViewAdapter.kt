@@ -42,7 +42,8 @@ class BillListViewAdapter(
         // 3. get data using position and bind to views
         val bill = billList[position]
         tvBillName.text   = bill.name
-        tvBillDate.text   = bill.dueDate
+        // show group name and due date for clarity
+        tvBillDate.text   = if (bill.groupName.isNotEmpty()) "${bill.groupName} • Due ${bill.dueDate}" else bill.dueDate
         tvBillAmount.text = bill.amount
         tvBillStatus.text = bill.status
 

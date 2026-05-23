@@ -11,15 +11,6 @@ class DashboardModel(private val app: CustomApp) {
 
     // step 2: pre-defined bill list (static/dummy data like the Student list in ListViewPrac)
     fun getBills(): MutableList<Bill> {
-        if (app.bills.isEmpty()) {
-            app.bills.addAll(mutableListOf(
-                Bill("Electricity", "5/15/2026", "$120.00", "Unpaid"),
-                Bill("Wi-Fi",       "5/20/2026", "$60.00",  "Unpaid"),
-                Bill("Water",       "5/22/2026", "$35.00",  "Unpaid"),
-                Bill("Rent",        "5/01/2026", "$500.00", "Paid"),
-                Bill("Gas",         "5/18/2026", "$45.00",  "Unpaid")
-            ))
-        }
         return app.bills
     }
 

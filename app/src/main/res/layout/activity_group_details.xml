@@ -1,6 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#1E1E1E">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="16dp"
+        android:background="@drawable/bg_main_window"
+        android:clipToOutline="true">
+
+        <!-- Blue Header -->
+        <RelativeLayout
+            android:id="@+id/groupDetailsHeader"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:background="@drawable/bg_header_blue_rounded"
+            android:paddingHorizontal="24dp"
+            android:paddingTop="28dp">
+
+            <!-- Back Button -->
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:padding="4dp"
+                android:src="@android:drawable/ic_menu_revert"
+                app:tint="#FFFFFF" />
+
+            <!-- Group Name -->
+            <TextView
+                android:id="@+id/tvGroupDetailName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="Apartment 3B"
+                android:textColor="#FFFFFF"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Settings Icon -->
+            <ImageView
+                android:id="@+id/btnGroupSettings"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_circle_icon"
+                android:backgroundTint="#40FFFFFF"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_menu_manage"
+                app:tint="#FFFFFF" />
+
+            <!-- Member Avatars Row -->
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="16dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/layoutMemberAvatars"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Member avatars added dynamically in code -->
+                    <!-- Static "Add" button always shown last -->
+                    <LinearLayout
+                        android:id="@+id/btnAddMemberToGroup"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_marginEnd="12dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_circle_icon"
+                            android:backgroundTint="#40FFFFFF"
+                            android:padding="12dp"
+                            android:src="@android:drawable/ic_input_add"
+                            app:tint="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="4dp"
+                            android:text="Add"
+                            android:textColor="#CCE4FF"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+        <!-- Content below header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/groupDetailsHeader"
+            android:orientation="vertical"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="24dp">
+
+            <!-- Group Bills header row -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Group Bills"
+                    android:textColor="#1E293B"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnAddBillToGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="+ Add Bill"
+                    android:textColor="#539CFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!-- Bills ListView -->
+            <ListView
+                android:id="@+id/listViewGroupBills"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:nestedScrollingEnabled="false"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

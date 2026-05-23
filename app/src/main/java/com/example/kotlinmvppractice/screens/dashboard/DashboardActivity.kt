@@ -117,6 +117,11 @@ class DashboardActivity : Activity(), DashboardContract.View {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        dashboardPresenter.loadBills()
+    }
+
 
     private fun showRemoveDialog(position: Int) {
         val bill = billList[position]

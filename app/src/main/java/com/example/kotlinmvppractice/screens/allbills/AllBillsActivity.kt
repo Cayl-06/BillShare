@@ -43,6 +43,13 @@ class AllBillsActivity : Activity(), AllBillsContract.View {
 
 		presenter.loadBills()
 
+		listViewAllBills.setOnItemClickListener { _, _, position, _ ->
+			val bill = billList[position]
+			val intent = Intent(this, com.example.kotlinmvppractice.screens.billdetails.BillDetailsActivity::class.java)
+			intent.putExtra("BILL_NAME", bill.name)
+			startActivity(intent)
+		}
+
 		navHome.setOnClickListener { startActivity(Intent(this, DashboardActivity::class.java)); finish() }
 		navGroups.setOnClickListener { startActivity(Intent(this, GroupsActivity::class.java)); finish() }
 		navBills.setOnClickListener { /* stay on bills */ }
@@ -52,6 +59,11 @@ class AllBillsActivity : Activity(), AllBillsContract.View {
 			showRemoveDialog(position)
 			true
 		}
+	}
+
+	override fun onResume() {
+		super.onResume()
+		presenter.loadBills()
 	}
 
 	private fun showRemoveDialog(position: Int) {

@@ -11,3 +11,5 @@ fun Activity.getEditTextValueEXT(id: Int): String {
 fun Activity.toastEXT(message: String){
     Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
 }
+
+fun Int.dpToPx(): Int = (this * android.content.res.Resources.getSystem().displayMetrics.density).toInt()

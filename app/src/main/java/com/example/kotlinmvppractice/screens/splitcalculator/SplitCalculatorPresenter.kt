@@ -8,8 +8,15 @@ class SplitCalculatorPresenter(
     private var isEqualSplit = true
     private var totalAmountDouble = 0.0
     private var currentMembers = mutableListOf<SplitMember>()
+    private var billName: String = ""
+    private var dueDate: String = ""
+    private var groupName: String = ""
 
-    override fun loadData(totalAmount: String, members: List<String>) {
+    override fun loadData(billName: String, totalAmount: String, dueDate: String, groupName: String, members: List<String>) {
+        this.billName = billName
+        this.dueDate = dueDate
+        this.groupName = groupName
+
         val amountStr = totalAmount.replace("$", "")
         totalAmountDouble = amountStr.toDoubleOrNull() ?: 0.0
 
@@ -40,7 +47,8 @@ class SplitCalculatorPresenter(
     }
 
     override fun onConfirmSave() {
-        // Validate custom if needed
+        // Save bill with split members via model
+        model.saveBillWithSplit(billName, "$%.2f".format(totalAmountDouble), dueDate, groupName, currentMembers)
         view.showSavedSuccess()
     }
 }

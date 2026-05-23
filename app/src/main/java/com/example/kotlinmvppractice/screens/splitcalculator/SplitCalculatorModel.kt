@@ -13,4 +13,13 @@ class SplitCalculatorModel(private val app: CustomApp) {
 	}
 
 	fun formatAmount(amount: Double): String = "$%.2f".format(amount)
+
+	fun saveBillWithSplit(billName: String, amount: String, dueDate: String, groupName: String, members: MutableList<SplitMember>) {
+		val bill = com.example.kotlinmvppractice.data.Bill(billName, dueDate, amount, "Unpaid", groupName, members)
+		app.bills.add(bill)
+	}
+
+	fun getGroupMembers(groupName: String): List<String> {
+		return app.groups.find { it.name == groupName }?.members ?: listOf(app.loginUser.username)
+	}
 }

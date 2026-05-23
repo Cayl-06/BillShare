@@ -9,7 +9,7 @@ class SplitCalculatorContract {
 	}
 
 	interface Presenter {
-		fun loadData(totalAmount: String, members: List<String>)
+		fun loadData(billName: String, totalAmount: String, dueDate: String, groupName: String, members: List<String>)
 		fun onEqualSplitTab()
 		fun onCustomSplitTab()
 		fun onConfirmSave()
