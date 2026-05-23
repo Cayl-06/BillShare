@@ -80,6 +80,7 @@ class AddBillActivity : Activity(), AddBillContract.View {
 		val intent = Intent(this, SplitCalculatorActivity::class.java)
 		intent.putExtra("BILL_NAME", bill.name)
 		intent.putExtra("BILL_AMOUNT", bill.amount)
+		intent.putExtra("BILL_DUE_DATE", bill.dueDate)
 		intent.putExtra("GROUP_NAME", groupName)
 		startActivity(intent)
 	}

@@ -19,8 +19,6 @@ class AddBillPresenter(private val view: AddBillContract.View, private val model
 		val formatted = "$%.2f".format(amtDouble)
 
 		val bill = Bill(name, dueDate, formatted)
-		model.saveBill(bill)
-		view.showSuccess()
 		view.navigateToSplitCalculator(bill, groupName)
 	}
 
